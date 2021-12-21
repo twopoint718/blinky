@@ -31,7 +31,7 @@ INCLUDES := -I. \
 
 # location of the QP/C framework (if not provided in an env. variable)
 ifeq ($(QPC),)
-QPC := ../../..
+QPC := /opt/qp/qpc
 endif
 
 #-----------------------------------------------------------------------------
@@ -179,7 +179,7 @@ else # default Debug configuration .........................................
 BIN_DIR := build
 
 # gcc options:
-CFLAGS  = -c -g -O -fno-pie -std=c99 -pedantic -Wall -Wextra -W \
+CFLAGS  = -c -g -O -fno-pie -std=c11 -pedantic -Wall -Wextra -W \
 	$(INCLUDES) $(DEFINES)
 
 CPPFLAGS = -c -g -O -fno-pie -std=c++11 -pedantic -Wall -Wextra \
@@ -188,7 +188,7 @@ CPPFLAGS = -c -g -O -fno-pie -std=c++11 -pedantic -Wall -Wextra \
 
 endif  # .....................................................................
 
-LINKFLAGS := -no-pie
+LINKFLAGS :=
 
 #-----------------------------------------------------------------------------
 C_OBJS       := $(patsubst %.c,%.o,   $(C_SRCS))
